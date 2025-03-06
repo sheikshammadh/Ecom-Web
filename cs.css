@@ -1,0 +1,12 @@
+<style>
+        .navbar-custom {
+            background-color: #1a2b3c; /* Dark blue background */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* White text */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #cccccc; /* Light grey text on hover */
+        }
+    </style>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="btsp.css">
+    <title>Orders& Address</title>
+    <style>
+        body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7VYo1KEFRecMqpw4l4IeaRNGJhrJXv8JhYQ&s');
+    background-size: cover; /* This ensures the image covers the entire page */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    background-attachment: fixed; /* This makes sure the background stays fixed while scrolling */
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-transparent">
+        <a href="" class="navbar-brand">
+            <img width="75" height="75" src="https://www.shutterstock.com/image-vector/initial-letter-sn-logotype-company-260nw-713443033.jpg" alt="">
+            <h4 style="color: white;">NS Agro Foods Pvt Ltd</h4>
+        </a>
+        <div class="ml-auto">
+            <ul class="navbar-nav">
+                <li><a href="./home.html" class="nav-link">Home</a></li>
+                <li><a href="./about.html" class="nav-link">About</a></li>
+                <li><a href="./services.html" class="nav-link">Services</a></li>
+                <li><a href="./products.html" class="nav-link">Products</a></li>
+                <li><a href="./contact.html" class="nav-link">Contact</a></li>
+                <li><a href="./login.html" class="nav-link" target="_parent">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <h3 style="color: white;">Order Shipment Address:</h3>
+    </div>
+<div class="card" style="background-color: transparent; width: 350px; height: 400px;background-image: url('https://w0.peakpx.com/wallpaper/974/615/HD-wallpaper-blue-technology-background-communication-social-network-background-communication-background-earth-blue-background.jpg');" >
+    <label style="color: white;"  for="state">Select State:</label>
+    <select style="margin-left: 30%;" id="state" onchange="updateDistricts()">
+        <option value="">--Select State--</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Kerala">Kerala</option>
+    </select><br>
+    <label style="color: white;" for="district">Select District:</label>
+    <select id="district">
+        <option value="">--Select District--</option>
+    </select><br>
+    <label style="color: white;" for="Mandal">Mandal Name:</label>
+    <input type="text">
+    <label style="color: white;" for="Village Name">Village Name:</label>
+    <input type="text">
+    <label style="color: white;" for="Pincode">Pincode:</label>
+    <input type="Pincode">
+    <div>
+    <input a href="payments.html", style="margin-left: 40%;" type="submit" class="btn btn-success">
+    </div>
+</div>
+    <script>
+        const districtsByState = {
+            "Karnataka": ["Bengaluru Urban", "Bengaluru Rural", "Belagavi", "Bellary", "Vijayapura", "Chamarajanagar", "Chikballapur"],
+            "Andhra Pradesh": ["Chittoor", "Kadapa", "Ananthapuram", "Nellore", "Prakasham", "Guntur", "Krishna"],
+            "Tamil Nadu": ["Krishnagiri","Karur","Kanyakumari","Kallakurichi","Coimbatore","Chennai","Ariyalur"],
+            "Telangana": ["Adilabad ","Bhadradri Kothagudem ","Hyderabad "," Karimnagar","Malkajgiri ","Sangareddy"," Siddipet","Mancherial "],
+            "kerala": ["Idukki","Kottayam","Alappuzha","Pathanamthitta","Kollam","Thiruvananthapuram","Kannur","Palakkad"]
+        };
+
+        function updateDistricts() {
+            const stateSelect = document.getElementById("state");
+            const districtSelect = document.getElementById("district");
+            const selectedState = stateSelect.value;
+
+            // Clear previous districts
+            districtSelect.innerHTML = '<option value="">--Select District--</option>';
+
+            if (selectedState && districtsByState[selectedState]) {
+                const districts = districtsByState[selectedState];
+                districts.forEach(district => {
+                    const option = document.createElement("option");
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+
+
+</body>
+</html>
